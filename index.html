@@ -3,7 +3,27 @@
 <head>
   <title>My Portfolio</title>
   <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="./slick/slick.css">
+  <link rel="stylesheet" href="./slick/slick-theme.css">
   <link rel="shortcut icon" href="src/favicon.ico.png">
+  <style>
+    /* 追加のCSSスタイル */
+    .enlarged {
+      transform: scale(1.2);
+    }
+
+    .your-class {
+  max-width: 400px; /* 例として最大幅を800pxに設定 */
+  margin: 0 auto; /* 中央に配置するためのマージン指定 */
+}
+
+.your-class img {
+  width: 100%;
+  height: auto;
+  padding-top: 15px;
+}
+
+  </style>
 </head>
 <body>
   <div class="header">
@@ -15,30 +35,101 @@
     <div class="content">
       <h1>About Me</h1>
       <div class="profile-picture">
-        <img src="src/malta.JPG" alt="Profile Picture">
-      </div>  
+        <img id="profile-img" src="src/malta.JPG" alt="Profile Picture">
+      </div>
       
-      <p>Hi! I'm Joya! I'm learning HTML, CSS, JavaScript and React at the moment.</p>
+      <p>Hi! I'm Joya. I'm learning HTML, CSS, JavaScript and React at the moment.</p>
 
       <div class="logo-container">
         <div class="logo">
-          <img src="src/html3.png" alt="HTML Logo">
+          <img id="htmlLogo" class="logo-img" src="src/html3.png" alt="HTML Logo">
         </div>
         <div class="logo">
-          <img src="src/css3.png" alt="CSS Logo">
+          <img id="cssLogo" class="logo-img" src="src/css3.png" alt="CSS Logo">
         </div>
         <div class="logo">
-          <img src="src/js3.png" alt="JavaScript Logo">
+          <img id="jsLogo" class="logo-img" src="src/js3.png" alt="JavaScript Logo">
         </div>
       </div>
     </div>
   </div>
+
+  <div class="myhobbycontainer">
+  <div class="myhobby">
+  <h1 class="h1hobby">My hobby</h1>
+  <p>I love basketball.
+  <p>My life before getting into programming,
+    <br>
+  just revolved around basketball.</p>
+  </div>
+  
+  <div class="your-class">
+    <div>
+      <img src="src/basketball.jpg" alt="Basketball picture">
+    </div>
+    <div>
+      <img src="src/hayama.jpg" alt="Hayama picture">
+    </div>
+    <div>
+      <img src="src/sarushima1.jpg" alt="Sarushima picture">
+    </div>
+  </div>
+  </div>  
 
   <footer class="footer">
     <p>&copy; 2023 My Portfolio. All rights reserved.</p>
   </footer>
 
   <script src="src/index.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="./slick/slick.min.js"></script>
+  <script>
+    // プロフィール画像をクリックしたときの動作
+    const profileImg = document.getElementById('profile-img');
+    profileImg.addEventListener('click', () => {
+      alert("Hello! Welcome to my portfolio.");
+    });
+
+    // ロゴ画像にマウスオーバーしたときの動作
+    const logoImgs = document.querySelectorAll('.logo-img');
+    logoImgs.forEach((logoImg) => {
+      logoImg.addEventListener('mouseover', () => {
+        logoImg.classList.add('enlarged');
+      });
+      logoImg.addEventListener('mouseout', () => {
+        logoImg.classList.remove('enlarged');
+      });
+    });
+
+    // HTMLロゴ画像をクリックしたときの動作
+    const htmlLogo = document.getElementById('htmlLogo');
+    htmlLogo.addEventListener('click', () => {
+      alert("2021年4月からHTMLの学習をスタートしました。");
+    });
+
+    // CSSロゴ画像をクリックしたときの動作
+    const cssLogo = document.getElementById('cssLogo');
+    cssLogo.addEventListener('click', () => {
+      alert("2021年4月からCSSの学習をスタートしました。");
+    });
+
+    // JavaScriptロゴ画像をクリックしたときの動作
+    const jsLogo = document.getElementById('jsLogo');
+    jsLogo.addEventListener('click', () => {
+      alert("2023年5月からJavaScriptの学習をスタートしました。");
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.your-class').slick({
+        dots: true, // ドットナビゲーションの表示
+        autoplay: true, // 自動再生の有効化
+        autoplaySpeed: 2000 // スライド切り替えの間隔（ミリ秒）
+      });
+    });
+  </script>
 </body>
 </html>
+
 
